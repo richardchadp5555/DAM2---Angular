@@ -1,13 +1,49 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HeroesModule } from './heroes/heroes.module';
+import { CentroComponent } from './centro/centro.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [HeroesModule, CentroComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = '02-bases';
+  VALOR_DEFAULT: number = 0;
+  public title: string = 'Angular';
+  public subtitle: string = 'Richard Chadwick Plaza 2ºDAM';
+  public contador: number = 10;
+
+
+incrementarPor(): void{
+  this.contador += 1;
 }
+
+decrementarPor(): void{
+  this.contador -= 1;
+}
+
+resetear(): void{
+  this.contador = this.VALOR_DEFAULT;
+}
+
+echarSanchez(): void{
+  const sanchez = document.getElementById('sanchezImagen') as HTMLElement;
+  const sanchezTriste = document.getElementById('sanchezTriste') as HTMLElement;
+
+  sanchez.style.display = 'none';
+  sanchezTriste.style.display = 'block';
+
+  setTimeout(() => {
+    sanchezTriste.style.display = 'none';
+  }, 2000)
+
+}
+}
+
+
+
+
+
+
