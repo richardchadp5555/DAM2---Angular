@@ -1,12 +1,7 @@
-<h1 class="text-center mb-4">Módulo DBZ</h1>
+<div class="container mt-4">
+  <h1>Módulo DBZ</h1>
 
+  <app-add-personaje (onNuevoPersonaje)="personajes.push($event)"></app-add-personaje>
 
-<div class="row">
-  <div class="col-md-6">
-    <app-lista></app-lista>
-  </div>
-
-  <div class="col-md-6">
-    <app-add-personaje></app-add-personaje>
-  </div>
+  <app-lista [personajes]="personajes"(onEliminarPersonaje)="eliminarPersonaje($event)"></app-lista>
 </div>
